@@ -21,22 +21,23 @@ function consultWatson(string) {
         "version_date": NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
     });
 
-    nlu.analyze({
-        'html': string, // Buffer or String
-        'features': {
-            'concepts': {},
-            'keywords': {},
-            'emotion': {}
-        }
-    }, function (err, response) {
-        //TODO REFACTOR THIS. IT SUCKS
-        if (err) {
-            console.log('error:', err);
-            return JSON.stringify(err, null, 2);
-        } else {
-            return JSON.stringify(response, null, 2);
-        }
-    });
+    return nlu;
+    // nlu.analyze({
+    //     'html': string, // Buffer or String
+    //     'features': {
+    //         'concepts': {},
+    //         'keywords': {},
+    //         'emotion': {}
+    //     }
+    // }, function (err, response) {
+    //     //TODO REFACTOR THIS. IT SUCKS
+    //     if (err) {
+    //         console.log('error:', err);
+    //         return JSON.stringify(err, null, 2);
+    //     } else {
+    //         return JSON.stringify(response, null, 2);
+    //     }
+    // });
 };
 
 module.exports = api;
