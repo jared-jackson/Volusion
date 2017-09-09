@@ -9,7 +9,9 @@ api.get('/', function () {
 
     var test_string = "Here is a super awesome string that is going to be a super amazing one to test, believe me";
 
-    return consultWatson(test_string);
+    var test = consultWatson(test_string);
+
+    return test + "THIS";
     //return test_string;
 });
 
