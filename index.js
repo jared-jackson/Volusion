@@ -7,7 +7,7 @@ var api = new ApiBuilder();
 
 api.get('/', function () {
 
-    var test_string = "Here is a super awesome string that is going to be a super amazing one to test, believe me";
+    var test_string = "<div><h3>THIS IS A SUPER AWESOME STRING WE ARE GOING TO BE EXAMINING</h3>";
 
     var test = consultWatson(test_string);
 
@@ -24,20 +24,18 @@ function consultWatson(string) {
     });
 
     nlu.analyze({
-        'text': string, // Buffer or String
+        'html': string, // Buffer or String
         'features': {
             'concepts': {},
             'keywords': {},
             'emotion': {}
         }
     }, function(err, response) {
-
-        var test = JSON.stringify(response.emotion);
-
         if (err)
             console.log('error:', err);
         else
-        return test;
+            console.log(JSON.stringify(response, null, 2));
+       return response.emotion;
     });
 }
 
