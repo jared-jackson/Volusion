@@ -23,20 +23,22 @@ function consultWatson(string) {
         version_date: NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
     });
 
-    nlu.analyze({
-        'html': string, // Buffer or String
-        'features': {
-            'concepts': {},
-            'keywords': {},
-            'emotion': {}
-        }
-    }, function(err, response) {
-        if (err)
-            console.log('error:', err);
-        else
-            console.log(JSON.stringify(response, null, 2));
-       return response.emotion;
-    });
+    return string;
+
+    // nlu.analyze({
+    //     'html': string, // Buffer or String
+    //     'features': {
+    //         'concepts': {},
+    //         'keywords': {},
+    //         'emotion': {}
+    //     }
+    // }, function(err, response) {
+    //     if (err)
+    //         console.log('error:', err);
+    //     else
+    //         console.log(JSON.stringify(response, null, 2));
+    //    return response.emotion;
+    // });
 }
 
 module.exports = api;
