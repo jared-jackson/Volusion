@@ -24,7 +24,7 @@ function consultWatson(string) {
     });
 
     nlu.analyze({
-        'html': string, // Buffer or String
+        'string': string, // Buffer or String
         'features': {
             'concepts': {},
             'keywords': {},
@@ -32,7 +32,7 @@ function consultWatson(string) {
         }
     }, function(err, response) {
 
-        var test = JSON.stringify(response.emotion);
+        var test = JSON.stringify(err);
 
         if (err)
             console.log('error:', err);
