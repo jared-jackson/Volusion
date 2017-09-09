@@ -19,7 +19,8 @@ function consultWatson(string) {
     var nlu = new NaturalLanguageUnderstandingV1({
         "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
         "username": "f1a68365-b09e-4ad1-b17e-52a0d5f80f4c",
-        "password": "JBAtZWNXWqy6"
+        "password": "JBAtZWNXWqy6",
+        "version_date": NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
     });
 
     nlu.analyze({
