@@ -29,10 +29,13 @@ function consultWatson(string) {
             'emotion': {}
         }
     }, function(err, response) {
+
+        var test = JSON.stringify(response);
+
         if (err)
             console.log('error:', err);
         else
-        return response.emotion;
+        return test;
     });
 }
 
