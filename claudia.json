@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "volution-article-analyzer-executor",
+    "name": "volution-article-analyzer",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "cqze8l1aq1",
+    "module": "index"
+  }
+}

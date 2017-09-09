@@ -1,0 +1,22 @@
+{
+  "name": "volution",
+  "version": "1.0.0",
+  "description": "Serverless article analyzer using IBM Watson to naturally process the language and detect emotion",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jared-jackson/Volution.git"
+  },
+  "author": "Jared Jackson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jared-jackson/Volution/issues"
+  },
+  "homepage": "https://github.com/jared-jackson/Volution#readme",
+  "dependencies": {
+    "claudia-api-builder": "^2.5.1"
+  }
+}
