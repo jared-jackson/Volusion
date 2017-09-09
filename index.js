@@ -5,14 +5,12 @@ var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-lan
 var api = new ApiBuilder();
 
 
-api.get('/', function () {  
+api.get('/', function () {
 
     var test_string = "Here is a super awesome string that is going to be a super amazing one to test, believe me";
 
     return consultWatson(test_string);
 });
-
-
 
 
 function consultWatson(string) {
@@ -30,12 +28,13 @@ function consultWatson(string) {
             'keywords': {},
             'emotion': {}
         }
-    }, function(err, response) {
-        if (err)
+    }, function (err, response) {
+        //TODO REFACTOR THIS. IT SUCKS
+        if (err) {
             console.log('error:', err);
-        else
-            console.log(JSON.stringify(response, null, 2));
-        console.log(response.emotion);
+        } else {
+            return JSON.stringify(response, null, 2);;
+        }
     });
 };
 
