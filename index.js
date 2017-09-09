@@ -24,7 +24,7 @@ function consultWatson(string) {
     });
 
     nlu.analyze({
-        'string': string, // Buffer or String
+        'text': string, // Buffer or String
         'features': {
             'concepts': {},
             'keywords': {},
