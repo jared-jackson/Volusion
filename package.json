@@ -4,7 +4,8 @@
   "description": "Serverless article analyzer using IBM Watson to naturally process the language and detect emotion",
   "main": "index.js",
   "scripts": {
-    "test": "npm start"
+    	"start": "TMPDIR=/tmp claudia create --name volution-article-analyzer --region us-east-1 --api-module index",
+	"deploy": "TMPDIR=/tmp claudia update"
   },
   "repository": {
     "type": "git",
