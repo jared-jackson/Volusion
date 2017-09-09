@@ -6,8 +6,10 @@ var api = new ApiBuilder();
 
 
 api.get('/', function () {  
-  'use strict';
-  return 'Hello World';
+
+    var test_string = "Here is a super awesome string that is going to be a super amazing one to test, believe me";
+
+    return consultWatson(test_string);
 });
 
 
