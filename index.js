@@ -31,7 +31,7 @@ api.get('/', function (req, res) {
                         console.log('error:', err);
                     } else {
                         test = response.emotion.document.emotion;
-                        callback(null, response, 'There was an error processing the language text.');
+                        callback(null, "THIS", 'There was an error processing the language text.');
                     }
 
                 });
