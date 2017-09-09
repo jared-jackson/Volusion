@@ -30,7 +30,7 @@ function consultWatson(string) {
         }
     }, function(err, response) {
 
-        var test = JSON.stringify(response);
+        var test = JSON.stringify(response.emotion);
 
         if (err)
             console.log('error:', err);
