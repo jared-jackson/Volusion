@@ -39,7 +39,8 @@ api.get('/', function (req, res) {
 
         ],
         function (err, insights) {
-            res.status(200).send(insights);
+            return insights;
+            //res.status(200).send(insights);
         }
     );
 
