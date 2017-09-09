@@ -1,4 +1,3 @@
-'use strict';
 var ApiBuilder = require('claudia-api-builder');
 var async = require('async');
 var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
@@ -7,7 +6,7 @@ var api = new ApiBuilder();
 
 
 api.get('/', function (req, res) {
-
+    'use strict';
     var string = " THIS IS OUR AMAZING TEXT STRING";
 
     async.waterfall(
@@ -43,6 +42,8 @@ api.get('/', function (req, res) {
             //res.status(200).send(insights);
         }
     );
+
+    return "test";
 
 
 });
