@@ -16,29 +16,24 @@ api.get('/', function () {
 
 function consultWatson(string) {
     var nlu = new NaturalLanguageUnderstandingV1({
-        "username": "f1a68365-b09e-4ad1-b17e-52a0d5f80f4c",
-        "password": "JBAtZWNXWqy6",
-        "version_date": NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
+        username: 'f1a68365-b09e-4ad1-b17e-52a0d5f80f4c',
+        password: 'JBAtZWNXWqy6',
+        version_date: NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
     });
 
-    return string;
-    // nlu.analyze({
-    //     'html': string, // Buffer or String
-    //     'features': {
-    //         'concepts': {},
-    //         'keywords': {},
-    //         'emotion': {}
-    //     }
-    // }, function (err, response) {
-    //     //TODO REFACTOR THIS. IT SUCKS
-    //     if (err) {
-    //         console.log('error:', err);
-    //         return err;
-    //     } else {
-    //         //return JSON.stringify(response, null, 2);
-    //         //return response;
-    //     }
-    // });
-};
+    nlu.analyze({
+        'html': string, // Buffer or String
+        'features': {
+            'concepts': {},
+            'keywords': {},
+            'emotion': {}
+        }
+    }, function(err, response) {
+        if (err)
+            console.log('error:', err);
+        else
+        return response.emotion;
+    });
+}
 
 module.exports = api;
