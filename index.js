@@ -32,7 +32,7 @@ function consultWatson(string) {
         }
     }, function(err, response) {
 
-        var test = JSON.stringify(err);
+        var test = JSON.stringify(response);
 
         if (err)
             console.log('error:', err);
