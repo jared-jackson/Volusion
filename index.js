@@ -32,8 +32,9 @@ function consultWatson(string) {
         //TODO REFACTOR THIS. IT SUCKS
         if (err) {
             console.log('error:', err);
+            return JSON.stringify(err, null, 2);
         } else {
-            return JSON.stringify(response, null, 2);;
+            return JSON.stringify(response, null, 2);
         }
     });
 };
