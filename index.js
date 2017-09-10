@@ -55,70 +55,69 @@ api.get('/', function (req) {
 
 
 // Approach 2
-//     request(analyze_url, function (error, response, html) {
-//         console.log(html);
-//         if (!error) {
-//             var $ = cheerio.load(html);
-//             var test = "";
-//             $('.post-content').filter(function () {
-//                 var data = $(this);
-//                 var article_content = data.parent().children().text().trim();
-//                 test = createTextVersion(article_content);
-//             });
-//             var analyze_content = test.toString();
-//             console.log(analyze_content);
-//             return new RSVP.Promise(function (resolve, reject) {
-//                 var nlu = new NaturalLanguageUnderstandingV1({
-//                     username: 'f1a68365-b09e-4ad1-b17e-52a0d5f80f4c',
-//                     password: 'JBAtZWNXWqy6',
-//                     version_date: NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
-//                 });
-//                 nlu.analyze({
-//                     'html': analyze_content,
-//                     'features': {
-//                         'concepts': {},
-//                         'keywords': {},
-//                         'emotion': {}
-//                     }
-//                 }, function (err, response) {
-//                     if (err) {
-//                         reject(err);
-//                     } else {
-//                         test = response.emotion.document.emotion;
-//                         resolve(test);
-//                     }
-//                 });
-//             });
-//         }
-//     });
+    request(analyze_url, function (error, response, html) {
+        console.log(html);
+        if (!error) {
+            var $ = cheerio.load(html);
+            var test = "";
+            $('.post-content').filter(function () {
+                var data = $(this);
+                var article_content = data.parent().children().text().trim();
+                test = createTextVersion(article_content);
+            });
+            var analyze_content = test.toString();
+            console.log(analyze_content);
+            return new RSVP.Promise(function (resolve, reject) {
+                var nlu = new NaturalLanguageUnderstandingV1({
+                    username: 'f1a68365-b09e-4ad1-b17e-52a0d5f80f4c',
+                    password: 'JBAtZWNXWqy6',
+                    version_date: NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
+                });
+                nlu.analyze({
+                    'html': analyze_content,
+                    'features': {
+                        'concepts': {},
+                        'keywords': {},
+                        'emotion': {}
+                    }
+                }, function (err, response) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        test = response.emotion.document.emotion;
+                        resolve(test);
+                    }
+                });
+            });
+        }
+    });
 
 //WORKING
-    var analyze_content = "THIS IS OUR SUPER AWESOME STRING";
-    return new RSVP.Promise(function (resolve, reject) {
-        console.log(analyze_content);
-        var nlu = new NaturalLanguageUnderstandingV1({
-            username: 'f1a68365-b09e-4ad1-b17e-52a0d5f80f4c',
-            password: 'JBAtZWNXWqy6',
-            version_date: NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
-        });
-        var test = {};
-        nlu.analyze({
-            'html': analyze_content,
-            'features': {
-                'concepts': {},
-                'keywords': {},
-                'emotion': {}
-            }
-        }, function (err, response) {
-            if (err) {
-                reject(err);
-            } else {
-                test = response.emotion.document.emotion;
-
-                resolve(test);
-            }
-        });
-    });
+//     var analyze_content = "THIS IS OUR SUPER AWESOME STRING";
+//     return new RSVP.Promise(function (resolve, reject) {
+//         var nlu = new NaturalLanguageUnderstandingV1({
+//             username: 'f1a68365-b09e-4ad1-b17e-52a0d5f80f4c',
+//             password: 'JBAtZWNXWqy6',
+//             version_date: NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
+//         });
+//         var test = {};
+//         nlu.analyze({
+//             'html': analyze_content,
+//             'features': {
+//                 'concepts': {},
+//                 'keywords': {},
+//                 'emotion': {}
+//             }
+//         }, function (err, response) {
+//             if (err) {
+//                 reject(err);
+//             } else {
+//                 test = response.emotion.document.emotion;
+//
+//                 resolve(test);
+//             }
+//         });
+//     });
 
 
 }, {success: {contentType: 'application/json'}});
