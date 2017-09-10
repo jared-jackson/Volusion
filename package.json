@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/jared-jackson/Volution#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "claudia-api-builder": "^2.5.1",
+    "request": "^2.81.0",
     "rsvp": "^4.0.1",
     "watson-developer-cloud": "^2.39.0"
   }
