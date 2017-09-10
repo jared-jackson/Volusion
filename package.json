@@ -19,7 +19,7 @@
   "homepage": "https://github.com/jared-jackson/Volution#readme",
   "dependencies": {
     "claudia-api-builder": "^2.5.1",
-    "denodeify": "^1.2.1",
+    "rsvp": "^4.0.1",
     "watson-developer-cloud": "^2.39.0"
   }
 }
