@@ -9,8 +9,6 @@ var api = new ApiBuilder();
 
 api.get('/', function (req) {
 
-
-
     var analyze_url = req.queryString.url;
 
     return new RSVP.Promise(function (resolve, reject) {
@@ -46,9 +44,7 @@ api.get('/', function (req) {
                 });
             }
         })
-
-
-
+    });
 
 
 }, {success: {contentType: 'application/json'}});
