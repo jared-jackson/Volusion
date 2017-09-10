@@ -30,9 +30,6 @@ api.get('/', function (req) {
                     version_date: NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
                 });
                 var analyze_text = article_content.toString();
-
-                console.log(analyze_text, "THE ANALYZED TEST");
-
                 nlu.analyze({
                     'html': analyze_text,
                     'features': {
@@ -41,6 +38,7 @@ api.get('/', function (req) {
                         'emotion': {}
                     }
                 }, function (err, response) {
+                    console.log(response.emotion.document.emotion, "HERE IS THE EMOTION BEHIND THE ARTICLE");
                     if (err) {
                         reject(err);
                     } else {
