@@ -9,8 +9,9 @@ api.get('/', function (req, res) {
     'use strict';
     var string = " THIS IS OUR AMAZING TEXT STRING";
 
-    var test = function (){
-        async.waterfall(
+     var test = "";
+
+         var work =   async.waterfall(
             [
                 function (callback) {
                     var nlu = new NaturalLanguageUnderstandingV1({
@@ -43,10 +44,9 @@ api.get('/', function (req, res) {
                 //res.status(200).send(insights);
             }
         );
-    };
 
 
-    return test;
+    return work;
 
 
 });
