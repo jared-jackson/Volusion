@@ -9,7 +9,8 @@ var api = new ApiBuilder();
 
 api.get('/', function (req) {
 
-    var analyze_url = req.queryString.url;
+    var analyze_url = req.queryString.name;
+
     return new RSVP.Promise(function (resolve, reject) {
         request(analyze_url, function (error, response, html) {
             if (!error) {
