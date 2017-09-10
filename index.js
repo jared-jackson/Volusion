@@ -13,7 +13,13 @@ api.get('/', function (req) {
 
     request(analyze_url, function (error, response, html) {
 
-        return html;
+        if(error){
+            return error;
+        } else {
+            return html;
+        }
+
+
         // if (!error) {
         //     var $ = cheerio.load(html);
         //     $('.post-content').filter(function () {
