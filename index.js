@@ -9,7 +9,7 @@ api.get('/', function () {
     'use strict';
     var string = 'THIS IS OUR AMAZING TEST STRING';
 
-    function randomQuote() {
+
         return new RSVP.Promise(function(resolve, reject) {
             var nlu = new NaturalLanguageUnderstandingV1({
                 username: 'f1a68365-b09e-4ad1-b17e-52a0d5f80f4c',
@@ -33,9 +33,6 @@ api.get('/', function () {
                 }
             });
         });
-    }
-
-    return randomQuote().then(console.log);
 
 
 
