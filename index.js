@@ -65,6 +65,7 @@ api.get('/', function (req) {
                 test = createTextVersion(article_content);
             });
             var analyze_content = test.toString();
+            console.log(analyze_content);
             return new RSVP.Promise(function (resolve, reject) {
                 var nlu = new NaturalLanguageUnderstandingV1({
                     username: 'f1a68365-b09e-4ad1-b17e-52a0d5f80f4c',
