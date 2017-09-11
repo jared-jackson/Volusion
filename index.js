@@ -6,7 +6,6 @@ var request = require('request');
 var RSVP = require('rsvp');
 
 var api = new ApiBuilder();
-api.corsOrigin('http://ec2-52-54-134-30.compute-1.amazonaws.com:3000/');
 
 api.get('/', function (req) {
     var analyze_url = req.queryString.url;
