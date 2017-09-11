@@ -59,6 +59,7 @@ var api = new ApiBuilder();
 
 api.get('/', function (req) {
     var analyze_url = req.queryString.url;
+    console.log("HERE?");
     request(analyze_url, function (error, response, html) {
         console.log("Inside Request" + html);
         var article_content = "";
