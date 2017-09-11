@@ -36,6 +36,7 @@ api.get('/', function (req) {
                         'emotion': {}
                     }
                 }, function (err, response) {
+                    console.log(err, "The interal server error we're getting")
                     if (err) {
                         reject(err);
                     } else {
