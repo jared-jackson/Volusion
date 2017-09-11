@@ -1,4 +1,4 @@
-'use strict';
+
 var ApiBuilder = require('claudia-api-builder');
 var cheerio = require('cheerio');
 var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
@@ -121,16 +121,19 @@ var api = new ApiBuilder();
 
 //Approach 3
 api.get('/', function (req) {
+    'use strict';
     var analyze_url = req.queryString.url;
     console.log("initial api call to url: " + analyze_url);
 
     rp(analyze_url).then(function (htmlString) {
+        console.log('INSIDE RP' + htmlString);
         var article_content = "";
         var watson_response;
         var $ = cheerio.load(htmlString);
         $('.post-content').filter(function () {
             var data = $(this);
             article_content = data.parent().children().text().trim();
+            console.log('GOT ARTICLE CONTENT' + article_content);
         });
 
         var nlu = new NaturalLanguageUnderstandingV1({
@@ -140,6 +143,7 @@ api.get('/', function (req) {
         });
         var analyze_text = article_content.toString();
         //I think nlu.analyze is finishing before request completes its call to get the html
+        console.log("initialize nlu");
         nlu.analyze({
             'html': analyze_text,
             'features': {
@@ -149,6 +153,7 @@ api.get('/', function (req) {
             }
         }, function (err, response) {
             if (err) {
+                console.log("There was an error" + error);
             } else {
                 watson_response = response.emotion.document.emotion;
                 console.log("WATSON HAS SPOKEN " + watson_response);
