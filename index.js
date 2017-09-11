@@ -12,6 +12,7 @@ var api = new ApiBuilder();
 api.get('/', function (req) {
     var analyze_url = req.queryString.url;
 
+    console.log("Initial");
 
     var promise = new RSVP.Promise(function (resolve, reject) {
         console.log("inside promise");
