@@ -6,18 +6,11 @@
 
 ## Technologies used
 
-- [Lambda](https://aws.amazon.com/lambda/)
-- [API Gateway](https://aws.amazon.com/api-gateway/)
+- [AWS Lambda](https://aws.amazon.com/lambda/)
+- [AWS API-Gateway](https://aws.amazon.com/api-gateway/)
 - [Claudia.js](https://claudiajs.com/)
 
-
-
-
-This project uses AWS Lambda, and the AWS API Gateway
-
-
-URL endpoint to hit : https://cqze8l1aq1.execute-api.us-east-1.amazonaws.com/latest
-
+Lambda endpoint to hit : https://cqze8l1aq1.execute-api.us-east-1.amazonaws.com/latest?:url
 
 To update code, execute : npm run start
 
