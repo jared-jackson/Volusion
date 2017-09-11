@@ -1,12 +1,13 @@
-var rp = require('request-promise');
-var ApiBuilder = require('claudia-api-builder');
-var cheerio = require('cheerio');
-var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
-var request = require('request');
-var RSVP = require('rsvp');
 
-var api = new ApiBuilder();
+var API = require('claudia-api-builder'),
+    cheerio = require('cheerio'),
+    NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js'),
+    request = require('request'),
+    rp = require('request-promise'),
+    api = new API();
 
+
+module.exports = api;
 
 // Approach 1 works, but has a race condition
 // api.get('/', function (req) {
@@ -165,12 +166,7 @@ api.get('/', function (req) {
     });
 
 
-
-
-
-
 }, {success: {contentType: 'application/json'}});
-
 
 
 module.exports = api;
