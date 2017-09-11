@@ -6,7 +6,6 @@ var RSVP = require('rsvp');
 
 var api = new ApiBuilder();
 
-// Approach 1 works, but might have a race condition
 api.get('/', function (req) {
     var analyze_url = req.queryString.url;
     return new RSVP.Promise(function (resolve, reject) {
@@ -34,12 +33,10 @@ api.get('/', function (req) {
                         'emotion': {}
                     }
                 }, function (err, response) {
-                    console.log(err, "The interal server error we're getting");
                     if (err) {
                         reject(err);
                     } else {
                         watson_response = response.emotion.document.emotion;
-                        console.log("WATSON" + watson_response);
                         resolve(watson_response);
                     }
                 });
