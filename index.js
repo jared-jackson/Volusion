@@ -10,6 +10,7 @@ var api = new ApiBuilder();
 api.get('/', function (req) {
     var analyze_url = req.queryString.url;
     return new RSVP.Promise(function (resolve, reject) {
+        console.log("initial");
         request(analyze_url, function (error, response, html) {
             var article_content = "";
             if (!error) {
