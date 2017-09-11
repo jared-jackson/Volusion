@@ -59,7 +59,7 @@ var api = new ApiBuilder();
 
 api.get('/', function (req) {
     var analyze_url = req.queryString.url;
-
+    console.log("initial api call to url: " + analyze_url);
     var promise = new RSVP.Promise(function (resolve, reject) {
         request(analyze_url, function (error, response, html) {
             console.log("in request");
