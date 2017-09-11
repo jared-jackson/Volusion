@@ -12,6 +12,7 @@ api.get('/', function (req) {
     return new RSVP.Promise(function (resolve, reject) {
         console.log("initial");
         request(analyze_url, function (error, response, html) {
+            console.log("inside the request");
             var article_content = "";
             if (!error) {
                 var $ = cheerio.load(html);
