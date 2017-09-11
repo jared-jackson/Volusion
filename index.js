@@ -32,7 +32,34 @@ api.get('/', function (req) {
     });
     promise.then(function (value) {
         console.log(value + "We logged the .then. That's good news");
-        return value;
+        var watson_response = "";
+         var article_content = value.toString();
+
+        var nlu = new NaturalLanguageUnderstandingV1({
+            username: 'f1a68365-b09e-4ad1-b17e-52a0d5f80f4c',
+            password: 'JBAtZWNXWqy6',
+            version_date: NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
+        });
+        var analyze_text = article_content.toString();
+        console.log("ANALYZING TEXT" + analyze_text);
+        //I think nlu.analyze is finishing before request completes its call to get the html
+        nlu.analyze({
+            'html': analyze_text,
+            'features': {
+                'concepts': {},
+                'keywords': {},
+                'emotion': {}
+            }
+        }, function (err, response) {
+            console.log(err, "The interal server error we're getting")
+            if (err) {
+                reject(err);
+            } else {
+                watson_response = response.emotion.document.emotion;
+                console.log("RESPONSE " + watson_response);
+                resolve(watson_response);
+            }
+        });
     }).catch(function (error) {
         // failure
     });
