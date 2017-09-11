@@ -73,7 +73,7 @@ api.get('/', function (req) {
                     resolve(article_content);
                 });
             } else {
-                console.log("REJECTING");
+                console.log("REJECTING" + error);
                 reject(error);
             }
         });
