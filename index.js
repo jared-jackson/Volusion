@@ -14,7 +14,7 @@ api.get('/', function (req) {
             var article_content = "";
             if (!error) {
                 var $ = cheerio.load(html);
-                var test = "";
+                var watson_response = "";
                 $('.post-content').filter(function () {
                     var data = $(this);
                     article_content = data.parent().children().text().trim();
@@ -25,6 +25,7 @@ api.get('/', function (req) {
                     version_date: NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
                 });
                 var analyze_text = article_content.toString();
+                console.log(analyze_text);
                 nlu.analyze({
                     'html': analyze_text,
                     'features': {
@@ -36,8 +37,9 @@ api.get('/', function (req) {
                     if (err) {
                         reject(err);
                     } else {
-                        test = response.emotion.document.emotion;
-                        resolve(test);
+                        watson_response = response.emotion.document.emotion;
+                        console.log(watson_response);
+                        resolve(watson_response);
                     }
                 });
             }
