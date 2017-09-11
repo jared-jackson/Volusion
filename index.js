@@ -1,10 +1,9 @@
-
+var rp = require('request-promise');
 var ApiBuilder = require('claudia-api-builder');
 var cheerio = require('cheerio');
 var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
 var request = require('request');
 var RSVP = require('rsvp');
-var rp = require('request-promise');
 
 var api = new ApiBuilder();
 
