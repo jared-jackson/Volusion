@@ -14,6 +14,7 @@ api.get('/', function (req) {
 
 
     var promise = new RSVP.Promise(function (resolve, reject) {
+        console.log("inside promise");
         request(analyze_url, function (error, response, html) {
             console.log("inside the request");
             var article_content = "";
@@ -31,7 +32,7 @@ api.get('/', function (req) {
     });
     promise.then(function (value) {
         console.log(value + "We logged the .then. That's good news");
-
+        return value;
     }).catch(function (error) {
         // failure
     });
