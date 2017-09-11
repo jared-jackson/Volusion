@@ -161,7 +161,7 @@ api.get('/', function (req) {
         });
 
     }).catch(function (err) {
-        // Crawling failed...
+        console.log("caught error" + err);
     });
 
 
