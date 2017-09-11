@@ -69,6 +69,7 @@ api.get('/', function (req) {
                 $('.post-content').filter(function () {
                     var data = $(this);
                     article_content = data.parent().children().text().trim();
+                    console.log("trying to resolve article content" + article_content);
                     resolve(article_content);
                 });
             } else {
@@ -77,17 +78,20 @@ api.get('/', function (req) {
         });
     });
     promise.then(function (value) {
+        console.log("content outside promise" + value);
         return new RSVP.Promise(function (resolve, reject) {
             var watson_response = "";
             var article_content = value.toString();
 
-            var nlu = new NaturalLanguageUnderstandingV1({
-                username: 'f1a68365-b09e-4ad1-b17e-52a0d5f80f4c',
-                password: 'JBAtZWNXWqy6',
-                version_date: NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
-            });
-            var analyze_text = article_content.toString();
-            console.log("ANALYZING TEXT" + analyze_text);
+            console.log("CONTENT INSIDE PROMISE", article_content);
+
+            // var nlu = new NaturalLanguageUnderstandingV1({
+            //     username: 'f1a68365-b09e-4ad1-b17e-52a0d5f80f4c',
+            //     password: 'JBAtZWNXWqy6',
+            //     version_date: NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
+            // });
+            // var analyze_text = article_content.toString();
+            // console.log("ANALYZING TEXT" + analyze_text);
             //I think nlu.analyze is finishing before request completes its call to get the html
             // nlu.analyze({
             //     'html': analyze_text,
