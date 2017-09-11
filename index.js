@@ -59,63 +59,54 @@ var api = new ApiBuilder();
 
 api.get('/', function (req) {
     var analyze_url = req.queryString.url;
-    console.log("HERE?");
 
     var promise = new RSVP.Promise(function (resolve, reject) {
-        console.log("inside promise");
         request(analyze_url, function (error, response, html) {
-            console.log("inside the request");
 
             var article_content = "";
             if (!error) {
-                // var $ = cheerio.load(html);
-                // $('.post-content').filter(function () {
-                //     var data = $(this);
-                //     article_content = data.parent().children().text().trim();
-                //     resolve(article_content);
-                // });
-                resolve(html);
+                var $ = cheerio.load(html);
+                $('.post-content').filter(function () {
+                    var data = $(this);
+                    article_content = data.parent().children().text().trim();
+                    resolve(article_content);
+                });
             } else {
                 reject(error);
             }
         });
     });
     promise.then(function (value) {
-        console.log(value + "We logged the .then. That's good news");
+        return new RSVP.Promise(function (resolve, reject) {
+            var watson_response = "";
+            var article_content = value.toString();
 
-        return value;
-
-
-        // return new RSVP.Promise(function (resolve, reject) {
-        //     var watson_response = "";
-        //     var article_content = value.toString();
-        //
-        //     var nlu = new NaturalLanguageUnderstandingV1({
-        //         username: 'f1a68365-b09e-4ad1-b17e-52a0d5f80f4c',
-        //         password: 'JBAtZWNXWqy6',
-        //         version_date: NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
-        //     });
-        //     var analyze_text = article_content.toString();
-        //     console.log("ANALYZING TEXT" + analyze_text);
-        //     //I think nlu.analyze is finishing before request completes its call to get the html
-        //     nlu.analyze({
-        //         'html': analyze_text,
-        //         'features': {
-        //             'concepts': {},
-        //             'keywords': {},
-        //             'emotion': {}
-        //         }
-        //     }, function (err, response) {
-        //         console.log(err, "The interal server error we're getting")
-        //         if (err) {
-        //             reject(err);
-        //         } else {
-        //             watson_response = response.emotion.document.emotion;
-        //             console.log("RESPONSE " + watson_response);
-        //             resolve(watson_response);
-        //         }
-        //     });
-        // });
+            var nlu = new NaturalLanguageUnderstandingV1({
+                username: 'f1a68365-b09e-4ad1-b17e-52a0d5f80f4c',
+                password: 'JBAtZWNXWqy6',
+                version_date: NaturalLanguageUnderstandingV1.VERSION_DATE_2017_02_27
+            });
+            var analyze_text = article_content.toString();
+            console.log("ANALYZING TEXT" + analyze_text);
+            //I think nlu.analyze is finishing before request completes its call to get the html
+            // nlu.analyze({
+            //     'html': analyze_text,
+            //     'features': {
+            //         'concepts': {},
+            //         'keywords': {},
+            //         'emotion': {}
+            //     }
+            // }, function (err, response) {
+            //     console.log(err, "The interal server error we're getting")
+            //     if (err) {
+            //         reject(err);
+            //     } else {
+            //         watson_response = response.emotion.document.emotion;
+            //         console.log("RESPONSE " + watson_response);
+            //         resolve(watson_response);
+            //     }
+            // });
+        });
 
     }).catch(function (error) {
         // failure
