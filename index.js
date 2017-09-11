@@ -7,7 +7,7 @@ var RSVP = require('rsvp');
 
 var api = new ApiBuilder();
 
-api.get('/', function () {
+api.get('/', function (req) {
     var analyze_url = req.queryString.url;
     return new RSVP.Promise(function (resolve, reject) {
         request(analyze_url, function (error, response, html) {
