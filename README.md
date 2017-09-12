@@ -9,9 +9,10 @@
 - [AWS Lambda](https://aws.amazon.com/lambda/)
 - [AWS API-Gateway](https://aws.amazon.com/api-gateway/)
 - [Claudia.js](https://claudiajs.com/)
+- [Cheerio.js] (https://www.npmjs.com/package/cheerio)
 - [IBM Watson](https://www.ibm.com/watson/)
 
-Lambda endpoint to hit : https://cqze8l1aq1.execute-api.us-east-1.amazonaws.com/latest?:url
+Lambda endpoint to hit : https://cqze8l1aq1.execute-api.us-east-1.amazonaws.com/latest?url=:url
 
 To update code, execute : npm run start
 
