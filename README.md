@@ -17,5 +17,5 @@ To update code, execute : npm run start
 
 To deploy code, execute : npm run deploy
 
-
+Access the dashboard utilizing this tech [here] (http://34.232.141.25:3000/)
 
