@@ -6,9 +6,9 @@
 
 ## Technologies used
 
-- [AWS Lambda](https://aws.amazon.com/lambda/)
 - [AWS API-Gateway](https://aws.amazon.com/api-gateway/)
 - [Claudia.js](https://claudiajs.com/)
+- [AWS Lambda](https://aws.amazon.com/lambda/)
 - [Cheerio.js](https://www.npmjs.com/package/cheerio)
 - [IBM Watson](https://www.ibm.com/watson/)
 
