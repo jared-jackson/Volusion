@@ -14,7 +14,7 @@ Lambda endpoint to hit : https://cqze8l1aq1.execute-api.us-east-1.amazonaws.com/
 
 To update code, execute : npm run start
 
-To deploy code, executre : npm run deploy 
+To deploy code, execute : npm run deploy
 
 
 
